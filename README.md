@@ -30,7 +30,6 @@ In progress, just setting up the project.
 # To Do
 Everything :) 
 
-- remove er-301 sdk if present as submodule etc, to avoid 'confusion'
 - go thru each project (simplest first), for each
 - see if they use, or are close to e301 mod.mk or tutorial.mk, if they are copy/adapt to use my newer version (best case!)
 - test build, ensure build artifacts are git ignored etc... keep 'local' i.e not in external folders, adapt if necessary
@@ -43,6 +42,7 @@ Everything :)
 # Done
 - create this repo with other repos as submodules
 - create a percussa branch on each
+- remove er-301 sdk if present as submodule etc, to avoid 'confusion'
 
 i.e. not a lot ;)
 
