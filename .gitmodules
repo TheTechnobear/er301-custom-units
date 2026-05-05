@@ -1,0 +1,18 @@
+[submodule "external/er-301-units-ljwall"]
+	path = external/er-301-units-ljwall
+	url = https://github.com/TheTechnobear/er-301-units-ljwall
+[submodule "external/er-301-units-solomine"]
+	path = external/er-301-units-solomine
+	url = https://github.com/TheTechnobear/er-301-units-solomine
+[submodule "external/er-301-units-supernicd"]
+	path = external/er-301-units-supernicd
+	url = https://github.com/TheTechnobear/er-301-units-supernicd
+[submodule "external/er-301-units-tmfset"]
+	path = external/er-301-units-tmfset
+	url = https://github.com/TheTechnobear/er-301-units-tmfset
+[submodule "external/er-301-units-yrn1"]
+	path = external/er-301-units-yrn1
+	url = https://github.com/TheTechnobear/er-301-units-yrn1
+[submodule "external/er-301"]
+	path = external/er-301
+	url = https://github.com/TheTechnobear/er-301
