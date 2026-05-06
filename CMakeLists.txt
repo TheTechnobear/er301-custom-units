@@ -1,9 +1,8 @@
 cmake_minimum_required(VERSION 3.15)
 project(er301-custom-units NONE)
 
-# Target architecture: linux (host) or am335x (ER-301 hardware)
 set(ARCH "linux" CACHE STRING "Target architecture")
-set_property(CACHE ARCH PROPERTY STRINGS linux am335x)
+set_property(CACHE ARCH PROPERTY STRINGS linux darwin)
 
 # Build profile: testing or release
 set(PROFILE "testing" CACHE STRING "Build profile")
@@ -32,6 +31,7 @@ endfunction()
 # ------------------------------------------------------------------
 # Subprojects with a top-level Makefile
 # ------------------------------------------------------------------
+#add_make_project(er-301-tutorial  external/er-301/tutorial/minimal)
 add_make_project(er-301-units-solomine  external/er-301-units-solomine)
 add_make_project(er-301-units-supernicd external/er-301-units-supernicd)
 add_make_project(er-301-units-tmfset    external/er-301-units-tmfset)
@@ -43,13 +43,15 @@ add_make_project(er-301-units-yrn1      external/er-301-units-yrn1)
 add_make_project(ljwall-chaoticmods external/er-301-units-ljwall/chaoticmods)
 add_make_project(ljwall-oscillators external/er-301-units-ljwall/oscillators)
 add_make_project(ljwall-faustian    external/er-301-units-ljwall/faustian)
+add_make_project(ljwall-faust-poc    external/er-301-units-ljwall/faust-poc)
 
 add_custom_target(er-301-units-ljwall
-    DEPENDS ljwall-chaoticmods ljwall-oscillators ljwall-faustian
+    DEPENDS ljwall-chaoticmods ljwall-oscillators 
+#    DEPENDS ljwall-chaoticmods ljwall-oscillators ljwall-faustian ljwall-faust-poc
     COMMENT "Building all ljwall units"
 )
 add_custom_target(er-301-units-ljwall-clean
-    DEPENDS ljwall-chaoticmods-clean ljwall-oscillators-clean ljwall-faustian-clean
+    DEPENDS ljwall-chaoticmods-clean ljwall-oscillators-clean ljwall-faustian-clean ljwall-faust-poc-clean
     COMMENT "Cleaning all ljwall units"
 )
 

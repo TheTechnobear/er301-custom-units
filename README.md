@@ -37,6 +37,7 @@ Everything :)
 - result : ensure I can build all projects, and that thier binaries are correct architure
 - create a package directory that I can release, store on github e.g. ./releases/xmx ./releases/ssp
 - one single xmx/ssp zip file for all as well? would be easier for me?!?
+- find faust2er301, used by ljwall
 
 
 # Done
@@ -45,4 +46,55 @@ Everything :)
 - remove er-301 sdk if present as submodule etc, to avoid 'confusion'
 
 i.e. not a lot ;)
+
+
+
+# Observations
+## build for darwin...
+need to set ARCH, needs revisting
+```
+cmake . -B build -DARCH=darwin  
+```
+
+## Darwin - Build Status, not tested
+ljwall/chaoticmods - ok
+ljwall/oscillator - ok
+ljwall/faustian - FAIL uses faust2er301
+ljwall/faust-poc - FAIL uses  faust2er301
+supernicd - ok 
+yrn1  - ok 
+tmfset - ok
+solomine - ok
+
+## Crosscompile SSP - Build Status, not tested
+ljwall/chaoticmods
+ljwall/oscillator 
+ljwall/faustian - FAIL uses faust2er301
+ljwall/faust-poc - FAIL uses  faust2er301
+supernicd - 
+yrn1  - 
+tmfset - 
+solomine - 
+
+# notes for particular projects
+
+
+## ljwall
+based on tutorial.mk, works except for those using faust
+
+## supernicd
+own makefile, but quite simple as its bulding one package
+converted to use tutorial.mk, remove bak/zip, used local includes rather than homedir!
+
+## yrn1 / tmfset
+basically same approach... yrn1 a litle simpler
+makefile talks of docker image, but thats for remote build.
+these were supporting darwin, and just needed LFLAGS updated.
+BUT the mod_builder.mk, env.mk, mod.mk are all 'own' copies, so wont work with cross compile.
+
+question is why? they still need er301 sdk, 
+perhaps modded due to docker requirement?
+
+# solomine
+updated itws own env.mk to pull into my sdk/scripts/darwin.mk
 
