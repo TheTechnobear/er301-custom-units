@@ -8,7 +8,15 @@ set_property(CACHE ARCH PROPERTY STRINGS linux darwin)
 set(PROFILE "testing" CACHE STRING "Build profile")
 set_property(CACHE PROFILE PROPERTY STRINGS testing release)
 
-set(MAKE_FLAGS ARCH=${ARCH} PROFILE=${PROFILE})
+if(DEFINED ENV{TOOLCHAIN_FILE})
+    set(TOOLCHAIN_FILE $ENV{TOOLCHAIN_FILE})
+    message("cross compile TOOLCHAIN_FILE  :  ${TOOLCHAIN_FILE}")
+    set(MAKE_FLAGS TOOLCHAIN_FILE=${TOOLCHAIN_FILE} PROFILE=${PROFILE})
+else() 
+    message("local build" for ${ARCH})
+    set(MAKE_FLAGS ARCH=${ARCH} PROFILE=${PROFILE})
+endif()    
+
 
 # ------------------------------------------------------------------
 # Helper: add a build + clean target pair for a Makefile-based project

@@ -56,6 +56,12 @@ need to set ARCH, needs revisting
 cmake . -B build -DARCH=darwin  
 ```
 
+## build for xmx
+```
+TOOLCHAIN_FILE=scripts/toolchains/xmx.mk cmake . -B build.xmx     
+cmake --build build.xmx  --target ljwall-chaoticmods
+```
+
 ## Darwin - Build Status, not tested
 ljwall/chaoticmods - ok
 ljwall/oscillator - ok
@@ -67,11 +73,11 @@ tmfset - ok
 solomine - ok
 
 ## Crosscompile SSP - Build Status, not tested
-ljwall/chaoticmods
-ljwall/oscillator 
-ljwall/faustian - FAIL uses faust2er301
-ljwall/faust-poc - FAIL uses  faust2er301
-supernicd - 
+ljwall/chaoticmods - ssp/xmx ok
+ljwall/oscillator ssp/xmx ok
+ljwall/faustian - FAIL uses faust2er301, in theory, crosscompile ok
+ljwall/faust-poc - FAIL uses  faust2er301, in theory , crosscompile ok
+supernicd - ssp/xmx ok
 yrn1  - 
 tmfset - 
 solomine - 
@@ -96,5 +102,5 @@ question is why? they still need er301 sdk,
 perhaps modded due to docker requirement?
 
 # solomine
-updated itws own env.mk to pull into my sdk/scripts/darwin.mk
+updated its own env.mk to pull into my sdk/scripts/darwin.mk
 
